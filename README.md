@@ -26,6 +26,7 @@ ou utilizando o yarn
 - [Veja o layout 📲](https://www.figma.com/file/LQOg1JMpJPhMC1PrbtkflT/GoFinances-Ignite-Copy?node-id=15%3A68)
 
 ## Aprendizado
+- Utilização de React Native com Typescript;
 - Utilização do Expo (Bare Workflow);
 - Utilização de Styled Components;
     - Criação de temas;
