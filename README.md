@@ -32,3 +32,4 @@ ou utilizando o yarn
     - Criação de temas;
     - Acesso a propriedades;
     - Criação de componentes dinâmicos;
+- Utilização de modal;
