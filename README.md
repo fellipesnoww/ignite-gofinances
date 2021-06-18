@@ -35,3 +35,4 @@ ou utilizando o yarn
 - Utilização de modal;
 - Utilização do React Hook Form;
 - Utilização do Yup para validar formulários;
+- Navegações em Tab e Stack;
