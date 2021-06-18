@@ -33,3 +33,5 @@ ou utilizando o yarn
     - Acesso a propriedades;
     - Criação de componentes dinâmicos;
 - Utilização de modal;
+- Utilização do React Hook Form;
+- Utilização do Yup para validar formulários;
