@@ -36,3 +36,4 @@ ou utilizando o yarn
 - Utilização do React Hook Form;
 - Utilização do Yup para validar formulários;
 - Navegações em Tab e Stack;
+- Armazenamento na memória do dispositivo (Async Storage);
