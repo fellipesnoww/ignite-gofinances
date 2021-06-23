@@ -53,14 +53,13 @@ export function Register(){
         name: 'Categoria',        
     });    
 
-    const dataKey = '@gofinance:transactions';
 
     const [transactionType, setTransactionType] = useState('');
     const [categoryModalOpen, setCategoryModalOpen] = useState(false);
 
     const navigation = useNavigation();
 
-    function handleTransactionTypeSelect(type: 'up' | 'down'){
+    function handleTransactionTypeSelect(type: 'positive' | 'negative'){
         setTransactionType(type);
     }
 
@@ -84,11 +83,13 @@ export function Register(){
             name: form.name,
             amount: form.amount,
             category: category.key,
-            transactionType,
+            type: transactionType,
             date: new Date(),            
         };
 
         try {
+            const dataKey = '@gofinance:transactions';
+
             const data = await AsyncStorage.getItem(dataKey);
 
             const currentData = data ? JSON.parse(data!) : [];
@@ -150,15 +151,15 @@ export function Register(){
                     <TransactionsType>
                         <TransactionTypeButton
                             title="Income"
-                            type="up"
-                            onPress={() => handleTransactionTypeSelect('up')}
-                            isActive={transactionType === 'up'}
+                            type="positive"
+                            onPress={() => handleTransactionTypeSelect('positive')}
+                            isActive={transactionType === 'positive'}
                         />
                         <TransactionTypeButton 
                             title="Outcome"
-                            type="down"
-                            onPress={() => handleTransactionTypeSelect('down')}
-                            isActive={transactionType === 'down'}
+                            type="negative"
+                            onPress={() => handleTransactionTypeSelect('negative')}
+                            isActive={transactionType === 'negative'}
                         />
                     </TransactionsType>
                     <CategorySelectButton 
