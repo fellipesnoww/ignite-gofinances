@@ -37,3 +37,4 @@ ou utilizando o yarn
 - Utilização do Yup para validar formulários;
 - Navegações em Tab e Stack;
 - Armazenamento na memória do dispositivo (Async Storage);
+- Utilização da lib Victory para exibição de gráficos na aplicação;
