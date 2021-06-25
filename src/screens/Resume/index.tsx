@@ -2,13 +2,19 @@ import React, { useEffect, useState } from 'react';
 import AsyncStorage from '@react-native-async-storage/async-storage';
 import { VictoryPie } from 'victory-native';
 import { useTheme } from 'styled-components';
+import { useBottomTabBarHeight } from '@react-navigation/bottom-tabs';
 
 import {
     Container,
     Header,
     Title,
     Content,
-    ChartContainer
+    ChartContainer,
+    MonthSelect,
+    MonthSelectButton,
+    MonthSelectIcon,
+    Month,
+
 } from './styles';
 
 import { HistoryCard } from '../../components/HistoryCard';
@@ -38,7 +44,7 @@ export function Resume(){
     const [totalByCategories, setTotalByCategories] = useState<CategoryData[]>([]);
     const theme = useTheme();
 
-    async function loadData(){
+    async function loadData(){        
         const dataKey = '@gofinance:transactions';
         const response = await AsyncStorage.getItem(dataKey);
         const responseFormated = response ? JSON.parse(response!) : [];
@@ -93,7 +99,24 @@ export function Resume(){
             <Header>
                 <Title>Resumo por categoria</Title>
             </Header>
-            <Content>
+            <Content
+                showsVerticalScrollIndicator={false}
+                contentContainerStyle={{
+                    paddingHorizontal: 24,
+                    paddingBottom: useBottomTabBarHeight()
+                }}
+                >
+                <MonthSelect>
+                    <MonthSelectButton>
+                        <MonthSelectIcon name="chevron-left"/>
+                    </MonthSelectButton>
+
+                    <Month>Maio</Month>
+
+                    <MonthSelectButton>
+                        <MonthSelectIcon name="chevron-right"/>
+                    </MonthSelectButton>
+                </MonthSelect>
                 <ChartContainer>
                     <VictoryPie 
                         data={totalByCategories}
