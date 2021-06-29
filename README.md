@@ -38,3 +38,6 @@ ou utilizando o yarn
 - Navegações em Tab e Stack;
 - Armazenamento na memória do dispositivo (Async Storage);
 - Utilização da lib Victory para exibição de gráficos na aplicação;
+- Utilização de Contextos;
+- Criação de Hooks;
+- Utilização de SVG;
