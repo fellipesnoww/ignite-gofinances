@@ -54,8 +54,14 @@ export function Dashboard(){
 
 
   function getLastTransactionDate(collection: DataListProps[], type: 'positive' | 'negative'){
-    const lastTransaction = new Date(Math.max.apply(Math, collection
-      .filter(transaction => transaction.type === type)
+
+    const collectionFiltered = collection.filter(transaction => transaction.type === type);
+
+    if(collectionFiltered.length === 0){
+      return 0;
+    }
+
+    const lastTransaction = new Date(Math.max.apply(Math, collectionFiltered
       .map(transaction => new Date(transaction.date).getTime())
     ));
 
@@ -106,8 +112,8 @@ export function Dashboard(){
     setTransactions(transactionsFormated);
     
     const lastTransactionsEntries = getLastTransactionDate(transactions, "positive");
-    const lastTransactionsExpensives = getLastTransactionDate(transactions, "negative");
-    const totalInterval = `01 a ${lastTransactionsExpensives}`;
+    const lastTransactionsExpensives = getLastTransactionDate(transactions, "negative");  
+    const totalInterval = lastTransactionsExpensives === 0 ? 'Não há transações' : `01 a ${lastTransactionsExpensives}`;
 
     const total = entriesTotal - expensiveTotal;
 
@@ -117,14 +123,14 @@ export function Dashboard(){
           style: 'currency',
           currency: 'BRL'
         }),
-        lastTransactions: `Última entrada dia ${lastTransactionsEntries}`,
+        lastTransactions: lastTransactionsEntries === 0 ? 'Não há transações' : `Última entrada dia ${lastTransactionsEntries}`,
       },
       expensives: {
         amount: expensiveTotal.toLocaleString('pt-Br', {
           style: 'currency',
           currency: 'BRL'
-        }),
-        lastTransactions: `Última saída dia ${lastTransactionsExpensives}`,
+        }),        
+        lastTransactions: lastTransactionsExpensives === 0 ? 'Não há transações' : `Última entrada dia ${lastTransactionsExpensives}`,
       },
       total: {
         amount: total.toLocaleString('pt-Br', {
@@ -132,6 +138,7 @@ export function Dashboard(){
           currency: 'BRL'
         }),
         lastTransactions: totalInterval
+        
       }
     });
     
