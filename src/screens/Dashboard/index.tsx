@@ -69,15 +69,12 @@ export function Dashboard(){
       month: 'long'
     })}`;
   }
-
-  let entriesTotal = 0;
-  let expensiveTotal = 0;
-
-  async function loadTransactions(){
-    
-    const response = await AsyncStorage.getItem(dataKey);
-    const transactions = response ? JSON.parse(response) : [];
-
+  
+  async function loadTransactions(){    
+    let entriesTotal = 0;
+    let expensiveTotal = 0;
+    const response = await AsyncStorage.getItem(dataKey);    
+    const transactions = response ? JSON.parse(response) : [];    
     const transactionsFormated: DataListProps[] = transactions
     .map((item: DataListProps) => {
 
@@ -144,10 +141,11 @@ export function Dashboard(){
     
     setIsLoading(false);
   }
-
+  
   useFocusEffect(useCallback(() => {    
     loadTransactions();
   }, []));
+
 
   
   return (
