@@ -41,3 +41,4 @@ ou utilizando o yarn
 - Utilização de Contextos;
 - Criação de Hooks;
 - Utilização de SVG;
+- Utilização de login social com Google e Apple;
