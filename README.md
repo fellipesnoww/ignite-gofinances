@@ -42,3 +42,9 @@ ou utilizando o yarn
 - Criação de Hooks;
 - Utilização de SVG;
 - Utilização de login social com Google e Apple;
+
+## Exemplo em execução
+
+
+https://user-images.githubusercontent.com/48105194/124045020-2b2c6500-d9e5-11eb-8ca2-8e96963684b3.mov
+
