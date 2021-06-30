@@ -46,6 +46,7 @@ import {
     TransactionsType,
 } from './styles';
 import { useNavigation } from '@react-navigation/native';
+import { useAuth } from '../../hooks/auth';
 
 
 export function Register(){
@@ -57,6 +58,8 @@ export function Register(){
 
     const [transactionType, setTransactionType] = useState('');
     const [categoryModalOpen, setCategoryModalOpen] = useState(false);
+
+    const { user } = useAuth();
 
     const navigation = useNavigation();
 
@@ -89,7 +92,7 @@ export function Register(){
         };
 
         try {
-            const dataKey = '@gofinance:transactions';
+            const dataKey = `@gofinance:transactions_user:${user.id}`;
 
             const data = await AsyncStorage.getItem(dataKey);
 

@@ -28,7 +28,7 @@ export default function App() {
   });
 
 
-  if(!fontsLoaded && userStorageLoading)
+  if(!fontsLoaded || userStorageLoading)
     return (
       <AppLoading />
     );

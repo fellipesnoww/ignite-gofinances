@@ -47,10 +47,11 @@ export function Dashboard(){
   const [highlightData, setHighlightData] = useState<HighlightData>({} as HighlightData);
   const [isLoading, setIsLoading] = useState(true);
 
-  const dataKey = '@gofinance:transactions';
+  const { user, signOut } = useAuth();
+
+  const dataKey = `@gofinance:transactions_user:${user.id}`;
   const theme = useTheme();
 
-  const { user, signOut } = useAuth();
 
   function getLastTransactionDate(collection: DataListProps[], type: 'positive' | 'negative'){
     const lastTransaction = new Date(Math.max.apply(Math, collection
@@ -137,13 +138,10 @@ export function Dashboard(){
     setIsLoading(false);
   }
 
-  useFocusEffect(useCallback(() => {
+  useFocusEffect(useCallback(() => {    
     loadTransactions();
   }, []));
 
-  useEffect(() => {
-    loadTransactions();
-  }, []);
   
   return (
     <Container>
