@@ -61,14 +61,16 @@ export function Register(){
 
     const { user } = useAuth();
 
-    const navigation = useNavigation();
+    // const navigation = useNavigation();
 
     function handleTransactionTypeSelect(type: 'positive' | 'negative'){
         setTransactionType(type);
     }
 
     function handleOpenSelectCategoryModal(){
-        setCategoryModalOpen(true);
+        setTimeout(() => {
+            setCategoryModalOpen(true);            
+        }, 3000);
     }
 
     function handleCloseSelectCategoryModal(){
@@ -112,7 +114,7 @@ export function Register(){
             });
 
             reset();
-            navigation.navigate('Listagem');
+            // navigation.navigate('Listagem');
             
         } catch (error) {
             console.log(error);
@@ -166,7 +168,8 @@ export function Register(){
                             isActive={transactionType === 'negative'}
                         />
                     </TransactionsType>
-                    <CategorySelectButton 
+                    <CategorySelectButton
+                        testID='button-category' 
                         title={category.name}
                         onPress={handleOpenSelectCategoryModal}
                     />
@@ -176,7 +179,10 @@ export function Register(){
                     onPress={handleSubmit(handleRegister)}
                 />
             </Form>
-            <Modal visible={categoryModalOpen}>
+            <Modal 
+                testID='modal-category'
+                visible={categoryModalOpen}
+            >
                 <CategorySelect 
                     category={category}
                     setCategory={setCategory}
