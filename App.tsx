@@ -4,7 +4,7 @@ import 'intl/locale-data/jsonp/pt-BR';
 import React from 'react';
 import AppLoading from 'expo-app-loading'
 import {ThemeProvider} from 'styled-components';
-import {NavigationContainer} from '@react-navigation/native';
+import * as WebBrowser from 'expo-web-browser';
 
 import theme from './src/global/styles/theme'
 
@@ -33,6 +33,8 @@ export default function App() {
       <AppLoading />
     );
   
+    WebBrowser.maybeCompleteAuthSession();
+
   return (
     <ThemeProvider theme={theme}>
       <StatusBar barStyle="light-content" />        

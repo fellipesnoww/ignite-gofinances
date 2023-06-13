@@ -23,6 +23,12 @@
         "wasm",
         "svg"
       ]
-    }
+    },
+    "extra": {
+      "eas": {
+        "projectId": "8b184eb4-78f1-4b90-a6d6-99f0a41b140d"
+      }
+    },
+    "owner": "fellipesnow"
   }
 }
