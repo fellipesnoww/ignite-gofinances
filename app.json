@@ -1,6 +1,6 @@
 {
   "name": "gofinances",
-  "displayName": "gofinances",
+  "displayName": "Go Finances",
   "expo": {
     "name": "gofinances",
     "slug": "gofinances",
@@ -30,6 +30,24 @@
         "projectId": "8b184eb4-78f1-4b90-a6d6-99f0a41b140d"
       }
     },
-    "owner": "fellipesnow"
+    "owner": "fellipesnow",
+    "icon": "./assets/icon.png",
+    "splash": {
+      "backgroundColor": "#5636D3",
+      "resize": "contain",
+      "image": "./assets/splash.png"
+    },
+    "adaptiveIcon": {
+      "foregroundImage": "./assets/adaptive-icon.png",
+      "backgroundColor": "#5636D3"
+    },
+    "ios": {
+      "bundleIdentifier": "com.fellipeneves.gofinances",
+      "buildNumber": "1.0.0"
+    },
+    "android": {
+      "package": "com.fellipeneves.gofinances",
+      "versionCode": 1
+    }
   }
 }
